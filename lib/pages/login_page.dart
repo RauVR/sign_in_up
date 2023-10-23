@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:sign_in_up/components/my_button.dart';
+import 'package:sign_in_up/components/square_tile.dart';
 import 'package:sign_in_up/images/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
@@ -24,108 +25,146 @@ class LoginPage extends StatelessWidget {
       
       backgroundColor: Colors.deepPurpleAccent.shade200,
 
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              //const SizedBox(height: 50,), //le da espaciado
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                //const SizedBox(height: 50,), //le da espaciado
 /*              const Icon(
-                Icons.lock,
-                size: 100,
-              ),*/
-              const SizedBox(height: 50,),
+                  Icons.lock,
+                  size: 100,
+                ),*/
+                const SizedBox(height: 50,),
 
-              Container(
-                width: 180,
-                //height: 100,
-                child: ClipOval(child: Image.asset('lib/images/TheBigFun.png'),)
-              ),
-
-
-
-              //CircleAvatar(backgroundImage: Image.asset('lib/images/TheBigFun.png') ,),
-
-              const SizedBox(height: 50,),
+                Container(
+                  width: 180,
+                  //height: 100,
+                  child:
+                  ClipOval(
+                    child: Image.asset('lib/images/TheBigFun.png'),
+                  )
+                ),
 
 
-              //   USER TEXT BOX
-              MyTextField(
-                controller: userNameController,
-                hintText: "User Name",
-                obscureText: false,
-              ),
 
-              const SizedBox(height: 20,),
+                //CircleAvatar(backgroundImage: Image.asset('lib/images/TheBigFun.png') ,),
 
-              //   PASSWORD TEXT BOX
-              MyTextField(
-                controller: passwordController,
-                hintText: "Password",
-                obscureText: true,
-              ),
-
-              const SizedBox(height: 20,),
+                const SizedBox(height: 50,),
 
 
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 60),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                //   USER TEXT BOX
+                MyTextField(
+                  controller: userNameController,
+                  hintText: "User Name",
+                  obscureText: false,
+                ),
+
+                const SizedBox(height: 20,),
+
+                //   PASSWORD TEXT BOX
+                MyTextField(
+                  controller: passwordController,
+                  hintText: "Password",
+                  obscureText: true,
+                ),
+
+                const SizedBox(height: 20,),
+
+
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 60),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 20,),
+
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                        color: Colors.white,
+                    MyButton(
+                      text: "         Sign In         ",
+                      onTap: signUserIn,
+                    ),
+/*                  MyButton(
+                      text: "     Sign Up     ",
+                      onTap: signUserUp,
+                    ),*/
+                  ],
+                ),
+
+
+
+                const SizedBox(height: 20,),
+
+                const Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.7,
+                        color: Colors.grey,
+                      ),
+                    ),
+
+                    Text(' Or continue with ',style: TextStyle(color: Colors.white),),
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.7,
+                        color: Colors.grey,
                       ),
                     ),
                   ],
                 ),
-              ),
 
-              const SizedBox(height: 20,),
+                const SizedBox(height: 40,),
 
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SquareTile(imagePath: 'lib/images/google.png',),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyButton(
-                    text: "Sign In",
-                    onTap: signUserIn,
-                  ),
-                  MyButton(
-                    text: "Sign Up",
-                    onTap: signUserUp,
-                  ),
-                ],
-              ),
+                    SizedBox(width: 30,),
 
+                    SquareTile(imagePath: 'lib/images/apple.png',)
+                  ],
+                ),
 
+                const SizedBox(height: 40,),
 
-              const SizedBox(height: 20,),
-
-              const Row(
-                children: [
-                  Expanded(
-                    child: Divider(
-                      thickness: 0.5,
-                      color: Colors.grey,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Not a member?',
+                      style: TextStyle(color: Colors.grey[500]),
                     ),
-                  ),
 
-                  Text(' Or continue with ',style: TextStyle(color: Colors.white),),
-                  Expanded(
-                    child: Divider(
-                      thickness: 0.5,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
+                    const SizedBox(width: 5,),
+
+                    const Text(
+                      'Register now',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                )
 
 
-
-
-            ],
+              ],
+            ),
           ),
         ),
       ),
